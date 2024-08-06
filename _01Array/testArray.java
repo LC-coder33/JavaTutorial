@@ -21,7 +21,7 @@ public class testArray {
 		System.out.println(lotto[0]+lotto[2]+lotto[4]);
 		
 		// 문제 5
-		lotto[0]=lotto[0];
+		lotto[0] =lotto[0];
 		lotto[1]+=lotto[0];
 		lotto[2]+=lotto[1];
 		lotto[3]+=lotto[2];
@@ -43,12 +43,8 @@ public class testArray {
 		int money = 2750;
 		int pay = 10000;
 		int change = pay - money;
-		int tChange = change / 1000;
-		int hChange = (change - 7000) / 100;
-		int tenChange = (change - 7200) / 10;
-		
-		System.out.println("천원 " +tChange+ "개 " + "백원 "+ hChange + "개 "
-				+ "십원 " + tenChange + "개");
+		System.out.println("천원" + change /1000 + "개, "
+				+ "백원" + change % 1000/100 + "개, 십원" + change % 100 / 10 + "개");
 		
 		// 문제 8
 		int xA = 700;
