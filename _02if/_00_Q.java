@@ -1,4 +1,4 @@
-package _02if.java;
+package _02if;
 
 public class _00_Q {
 
