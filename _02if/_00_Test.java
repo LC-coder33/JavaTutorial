@@ -58,17 +58,11 @@ public class _00_Test {
 		
 		// 문제 7
 		int[] a = {45, 34, 64};
-		int fDigit0 = a[0] /10;
-		int sDigit0 = a[0] % 10;
-		int fNumber = fDigit0 + sDigit0;
+		int fNumber = a[0] /10 + a[0] % 10;
 		
-		int fDigit1 = a[1] /10;
-		int sDigit1 = a[1] % 10;
-		int sNumber = fDigit1 + sDigit1;
+		int sNumber =  a[1] /10 + a[1] % 10;
 		
-		int fDigit2 = a[2] /10;
-		int sDigit2 = a[2] % 10;
-		int tNumber = fDigit2 + sDigit2;
+		int tNumber =  a[2] /10 + a[2] % 10;
 		
 		if(fNumber > sNumber && fNumber > tNumber) {
 			System.out.println(a[0]);
