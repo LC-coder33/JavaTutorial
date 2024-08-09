@@ -87,6 +87,15 @@ public class test01 {
 			fibP = i;
 			i = fibA;
 		}
+		
+		/*
+		 * int temp = 0; 				임시 저장 값
+		 *sysout(i);					현재 피보나치 수 출력
+		 *int temp = i;					임시 저장 값에 현재 피보나치 수 저장
+		 *i = bint + i;					현재 피보나치 수를 이후 값으로 만듦
+		 *fibP = temp;					이전 피보나치 수를 이후 값이 되기 전 현 피보나치 수로 바꿔줌
+		 */
+		
 	System.out.println("");
 	System.out.println("문제 10");
 	int sumofNumber = 0;
@@ -98,5 +107,13 @@ public class test01 {
 		sumofNumber += (987654321/i % 10);
 	}
 	System.out.println("=" + sumofNumber);
+
+	 /* int a = 987654321;
+	 int sum = 0;
+	 for ( ; a > 0 ; ) {
+	 sum +=(sum%10);
+	 a/=10;
+	 }
+	 System.out.println(sum); */
 	}
 }
