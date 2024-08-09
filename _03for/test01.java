@@ -68,7 +68,9 @@ public class test01 {
 		int fibSum = 0;
 		for(int i = 1; i < 8; i++) {
 			System.out.print(fib);
+			if(i != 7) {
 			System.out.print("+");
+			}
 			fibSum += fib;
 			aFib = fib + pFib;
 			pFib = fib;
@@ -90,7 +92,9 @@ public class test01 {
 	int sumofNumber = 0;
 	for(int i = 100000000; i >=1; i /= 10) {
 		System.out.print((987654321/i) % 10);
-		System.out.print("+");
+		if(i!=1) {
+			System.out.print("+");
+		}
 		sumofNumber += (987654321/i % 10);
 	}
 	System.out.println("=" + sumofNumber);
