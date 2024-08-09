@@ -106,7 +106,7 @@ public class test02 {
 					mCnt = cCnt;
 				}
 		}
-		System.out.println("터널의 길이는 " + mCnt);
+		System.out.println("터널의 길이: " + mCnt);
 		// 문제 13
 		System.out.println("문제 13");
 		int[] tunnel2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,2,0,0,0,0,0,3,3};
@@ -117,13 +117,18 @@ public class test02 {
 			if(tunnel2[i] == tunnelNumber) {
 				cCount++;
 			} else {
-				tunnelNumber=tunnel2[i];
+				tunnelNumber=tunnel2[i+1];
 				cCount = 0;
 			} if(cCount > mCount) {
 				mCount = cCount;
 			}
 		}
-		System.out.println(mCount);
+		System.out.println("터널의 길이: " + mCount);
+		
+		// 문제 14
+		System.out.println("문제 14");
+		String ttt="aabbbcccaaaaddbbbaaaaa";
+		int currentCount = 0;
 	}
 }
 
