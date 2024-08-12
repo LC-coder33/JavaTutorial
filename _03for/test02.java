@@ -33,7 +33,7 @@ public class test02 {
 		// 문제 4
 		System.out.println("문제 4");
 		int[] arr = {45, 23, 25, 64, 3, 24, 48};
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < arr.length; i++) {
 			if(arr[i] % 2 == 0) {
 				System.out.print(arr[i] + " ");
 			}
@@ -121,27 +121,63 @@ public class test02 {
 		System.out.println("터널의 길이: " + mCnt);
 		
 		// 문제 13
+		/* 1. 현재 카운트 및 맥시멈 카운트를 0으로 설정
+		 * 2. 터널숫자는 현재 설정된 터널 배열의 첫번째 숫자와 같게 한다
+		 * 3. 이후 설정 될 가장 긴 터널의 숫자를 일단 0으로 설정
+		 * 4. 만약 i 번째 터널의 숫자가 현재 설정된 터널의 숫자와 같다면 cCount가 하나 올라간다.
+		 * 5. 아니라면 현재 터널 숫자를 지금의 터널의 숫자로 설정한 뒤 카운트를 1로 설정함
+		 * (이후 바로 다음 숫자로 i가 올라가기에 당장의 카운트는 0이 아닌 1이 되어야함)
+		 * 6. 만약 현재 카운트 숫자가 최대값 카운트 숫자보다 크다면 mCount 를 cCount의 숫자로 바꾼다.
+		 * 7. 만약 현재 카운트 숫자가 최대값보다 크다면 해당 카운트 수를 올린 숫자를 가장 긴 터널 숫자로
+		 * 설정해준다.
+		 */
 		System.out.println("문제 13");
 		int[] tunnel2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,2,0,0,0,0,0,3,3};
 		int cCount = 0;
 		int mCount = 0;
 		int tunnelNumber = tunnel2[0];
+		int arrNumber = 0;
 		for(int i = 0; i < tunnel2.length; i++) {
 			if(tunnel2[i] == tunnelNumber) {
 				cCount++;
 			} else {
-				tunnelNumber=tunnel2[i+1];
-				cCount = 0;
+				tunnelNumber=tunnel2[i];
+				cCount = 1;
 			} if(cCount > mCount) {
 				mCount = cCount;
+				arrNumber = tunnel2[i];
 			}
 		}
-		System.out.println("터널의 길이: " + mCount);
+		System.out.print("터널의 길이는 " + mCount + "이고 ");
+		System.out.println("가장 긴 터널의 이름은 " + arrNumber + "터널이다.");
 		
 		// 문제 14
 		System.out.println("문제 14");
 		String ttt="aabbbcccaaaaddbbbaaaaa";
-		int currentCount = 0;
+		int currentCount = 0; String resultZip = "";
+		int maximumCount = 0;
+		char stunnelNumber = ttt.charAt(0);
+		int tttNumber = 0;
+		for(int i = 0; i < ttt.length(); i++) {
+			if(stunnelNumber == ttt.charAt(i)) {
+				currentCount++;
+			} else {
+				resultZip = resultZip + stunnelNumber + currentCount;
+				stunnelNumber=ttt.charAt(i);
+				currentCount = 1;
+			}	if(currentCount > maximumCount) {		// 15번 문제에서는 불필요
+				maximumCount = currentCount;
+				tttNumber = stunnelNumber;
+			}
+		}
+		resultZip = resultZip + stunnelNumber + currentCount;
+		
+		System.out.print("터널의 길이는 " + maximumCount + "이고 ");
+		System.out.println("가장 긴 터널의 이름은 " + (char)tttNumber + "터널이다.");
+		 
+		// 문제 15
+		System.out.println("문제 15");
+		System.out.println(resultZip);
 	}
 }
 
