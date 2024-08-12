@@ -6,18 +6,22 @@ public class test02 {
 		
 		// 문제 1
 		System.out.println("문제 1");
-		int oddSum = 0;
 		for(int i = 100; i <= 999; i++) {
 			if(i % 2 != 0 ) {
 				System.out.print(i + " ");
-				oddSum += i;
 			}
 		}
 				System.out.println(" ");
 		
 		// 문제 2
 		System.out.println("문제 2");
-				System.out.println(oddSum);
+		int oddSum = 0;
+		for(int i = 0; i <= 100; i++) {
+			if(i % 2 != 0) {
+				oddSum += i;
+			}
+		}
+		System.out.println(oddSum);
 				
 		// 문제 3
 		System.out.println("문제 3");
@@ -25,6 +29,7 @@ public class test02 {
 			System.out.print(i + " ");
 		}
 		System.out.println(" ");
+		
 		// 문제 4
 		System.out.println("문제 4");
 		int[] arr = {45, 23, 25, 64, 3, 24, 48};
@@ -34,6 +39,7 @@ public class test02 {
 			}
 		}
 		System.out.println(" ");
+		
 		// 문제 6
 		System.out.println("문제 5");
 		for(int i = 0; i < 7; i++) {
@@ -41,6 +47,7 @@ public class test02 {
 				System.out.print(i + " ");
 			}
 		}
+		
 		// 문제 7
 		System.out.println(" ");
 		System.out.println("문제 7");
@@ -49,6 +56,7 @@ public class test02 {
 			sumArr += arr[i];
 		}
 		System.out.println(sumArr);
+		
 		// 문제 8
 		System.out.println("문제 8");
 		int arrCnt = 0;
@@ -58,6 +66,7 @@ public class test02 {
 			}
 		}
 		System.out.println(arrCnt + "개");
+		
 		// 문제 9
 		System.out.println("문제 9");
 		String test = "abcdeabce";
@@ -70,6 +79,7 @@ public class test02 {
 		}
 		}
 		System.out.println(charSum + "개");
+		
 		// 문제 10
 		System.out.println("문제 10");
 		int maxArr = 0;
@@ -82,6 +92,7 @@ public class test02 {
 		}
 		System.out.print("최대값은 "+ maxArr);
 		System.out.println("이고 인덱스는 " + maxIndex + "번째 인덱스이다.");
+		
 		// 문제 11
 		System.out.println("문제 11");
 		int addedNumber = 0;
@@ -92,6 +103,7 @@ public class test02 {
 				System.out.println(" ");
 			}
 		}
+		
 		//문제 12
 		System.out.println("문제 12");
 		int[] tunnel1 = {1,2,3,0,0,0,1,2,3,4,5,2,2,2,2,0,0,0,0,0,3,3};
@@ -107,6 +119,7 @@ public class test02 {
 				}
 		}
 		System.out.println("터널의 길이: " + mCnt);
+		
 		// 문제 13
 		System.out.println("문제 13");
 		int[] tunnel2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,2,0,0,0,0,0,3,3};
