@@ -96,6 +96,7 @@ public class test03 {
 				
 		// 문제 07
 		System.out.println("문제 07");
+	
 		int [] b = {34, 2, 35, 8, 31, 45};
         for(int i = 0; i < b.length - 1; i++) {
         	if(i > (i + 1)) {
