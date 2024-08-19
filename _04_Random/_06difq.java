@@ -3,7 +3,7 @@ package _04_Random;
 import java.util.Random;
 import java.util.Scanner;
 
-public class 최진석 {
+public class _06difq {
 
 	public static void main(String[] args) {
 		// 문제 0. 키보드로 숫자 한 개를 입력 받아서 홀짝을 출력하는 프로그램을 작성하세요.
