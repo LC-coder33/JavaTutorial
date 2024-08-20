@@ -16,12 +16,12 @@ public class _10_Test {
 					break;
 				}
 			}
-				if(cnt >= 2) {
+				if(cnt >= size) {
 					maxCnt += (cnt - size + 1);
 					i += cnt - 1;
 			}
 		}
-		System.out.println(maxCnt);
+		System.out.println(maxCnt + "개");
 	}
 
 }
