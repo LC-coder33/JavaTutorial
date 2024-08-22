@@ -26,7 +26,7 @@ public class _00_game {
 		Random rand = new Random();
 		boolean test = true;
         while (test) {	// true값인 test를 while문에 넣어서 while문을 true상태로 만듦
-            System.out.println("레벨을 선택하세요 (1~5):");
+            System.out.println("레벨을 선택하세요 (1 2 3 4 5):");
             int levelChoose = in.nextInt();
             in.nextLine(); // 입력 버퍼 비우기
             System.out.println(" ");
@@ -56,7 +56,7 @@ public class _00_game {
 
                     if (answer.equals(randomChar)) {        // 문제와 정답이 같을 시
                         System.out.print("정답! 10점 득점 || ");
-                        score += 10;
+                        score += 100;
                         cnt++;
                         correctCnt++;
                         
