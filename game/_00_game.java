@@ -22,7 +22,8 @@ public class _00_game {
 		int score = 0;						// 초기 점수 0점
 		double cnt = 0;						// 맞춘 비율을 위한 전체 카운트
 		double correctCnt = 0;					// 맞춘 비율을 위한 맞춘 문제 카운트
-		int previousScore = 0; 
+		int previousScore = 0;
+		double previousCnt = 0;					// 이전 레벨의 맞춘 비율을 저장하는 변수
 		Random rand = new Random();
 		boolean test = true;
         while (test) {	// true값인 test를 while문에 넣어서 while문을 true상태로 만듦
@@ -37,9 +38,11 @@ public class _00_game {
             }
 
             for (int i = levelChoose; i < 6; i++) {        // level 1부터 5까지 훑기 위한 for문
-                previousScore = score;
+                previousScore = score;						// 현 점수를 이전 점수로써 저장
+                previousCnt = (correctCnt/cnt)*100;			// 현 맞춘 비율을 이전 맞춘 비율로써 저장
             	score = 0;                    // 게임을 초기화 할 때마다 점수가 초기화되도록 설정
-
+            	cnt = 0;
+            	correctCnt = 0;
                 for (int j = 0; j < 15; j++) {    // 선택된 i 배열을 총 15번 순회
                     String[] currentLevel = level[i];
                     // 코드에 의해 선택된 i 배열을 현재 문제지가 될 배열로 설정
@@ -56,7 +59,7 @@ public class _00_game {
 
                     if (answer.equals(randomChar)) {        // 문제와 정답이 같을 시
                         System.out.print("정답! 10점 득점 || ");
-                        score += 100;
+                        score += 10;
                         cnt++;
                         correctCnt++;
                         
@@ -70,7 +73,7 @@ public class _00_game {
                     
 
                         if(score >=100 && i != 5) {
-                        System.out.println(previousScore);
+                        System.out.println(score + "점");
                         System.out.println(String.format("%.2f", (correctCnt/cnt)*100) + "% 의 비율로 맞추셨습니다.");
                         // 계속 사용 될 비율 계산 방식. 소수를 소숫점 두자리수까지 보이게 함
                         System.out.println("※ 레벨을 올립니다.");    
@@ -83,13 +86,13 @@ public class _00_game {
                         // 레벨 5일 때 점수가 100이면 레벨을 올린다는 문구를 보여주지 않음
                         }
                 }
-                if (previousScore >= 100 && (correctCnt/cnt*100) == 100.00) {
-                	System.out.println("두번이나 완벽하게 문제를 푸셨습니다! 축하합니다.");
+                if (previousScore >= 100 && (correctCnt/cnt*100) == 100.00 && previousCnt == 100.00) {
+                	System.out.println("두번이나 문제를 완벽하게 푸셨습니다! 레벨을 2단계 올립니다.");
                 	i = i + 1;
                 }
                 if (score >= 30 && score < 100) {
                     // 30점 이상 100점 미만일 시 재도전
-                	System.out.println(previousScore);
+                	System.out.println(score + "점");
                 	System.out.println(String.format("%.2f", (correctCnt/cnt)*100) + "% 의 비율로 맞추셨습니다.");
                     System.out.println("※ 레벨을 유지합니다.");
                     System.out.println(" ");
@@ -97,7 +100,7 @@ public class _00_game {
                     i = i - 1;
                 } else if (score < 30) {
                     // 30점 미만일 시 레벨 1로 회귀
-                	System.out.println(previousScore);
+                	System.out.println(score + "점");
                 	System.out.println(String.format("%.2f", (correctCnt/cnt)*100) + "% 의 비율로 맞추셨습니다.");
                     System.out.println("※ 1단계부터 다시 도전합니다.");
                     System.out.println(" ");
