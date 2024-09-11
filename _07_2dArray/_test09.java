@@ -12,8 +12,11 @@ public class _test09 {
             {14, 22, 13, 24},
             {14, 14, 14, 4}
         };
+        System.out.println("좌표를 입력하세요. 10의 자리는 행 1의 자리는 열입니다.");
         int nNum = in.nextInt();
         in.nextLine();
+        int leftNum = nNum / 10;
+        int maxNum = a[0].length-1;
         for(int i = nNum / 10; i <= nNum / 10; i++) {
         	for(int j = nNum % 10; j < a[0].length; j++) {
         		if(a[i][0] == a[i][1] && a[i][0] == a[i][2] && a[i][0] == a[i][3]) {
