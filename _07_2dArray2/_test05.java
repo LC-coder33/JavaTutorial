@@ -2,95 +2,67 @@ package _07_2dArray2;
 
 public class _test05 {
 
-	public static void main(String[] args) {
-		int[][] a = new int[4][5];
-		int num = 1;
-		
-		/* 출력되어야하는 답의 형태
-		 * 1 2 3 4 5
-		 * 14 15 16 17 6
-		 * 13 20 19 18 7
-		 * 12 11 10 9 8
-		 */
-		
-		//사고과정.
-		// 숫자가 1부터 20까지 증가하는 형태로 필요 - 이에 맞게 일차적으로 배열값 입력
-		// 배열의 길이는 행4, 열5로 정해져있으므로 문제에 맞게 출력하기 위해서는 
-		// 처음 값을 입력하는 순서가 중요함
-		// 따라서 입력 순서를 생각해보면,
-		// 1. 0행에서 0,1,2,3,4열순으로 4에도달했을때(열의 최대값에 도달했을때)
-		// 2. 열의 최대값인 4열에서 0,1,2,3행으로 진행(또다시 행의 최대값에 도달했을때)
-		// 3. 3행에서 4,3,2,1,0열으로 진행(열의 최소값에 도달했을 때)   
-		// 4. 0열에서 3,2,1행으로 진행(행의 최소값+1에 도달했을때) / 1바퀴
-		// 5. 1행(최소값+1)에서 1,2,3열(열최대값-1)
-		// 6. 3열에서 1,2행(행 최대값-1)
-		// 7. 2행에서 3,2,1열 / 2바퀴
-		// 각 바퀴로 계산했을 때, 행과열의 최대 - 최소값에 따라서 반복의 횟수가 결정되고
-		// 그 최대 최소값은 바퀴를 돌때마다 수가 바뀌는 패턴
-		
-		// 배열 값 입력
-		int rmin = 0;
-		int rmax = a.length-1;
-		int cmin =0;
-		int cmax = a[0].length-1;
-		int cnt=1;
-		
-		for (;num<=(a.length*a[0].length)-1;) {
-			if(cnt%4==1) {
-				for (int j = cmin; j <= cmax; j++) {
-					a[rmin][j]=num;
-					num++;
-					if(j==cmax) {
-//						System.out.println(a[rmin][j]);
-						cnt++;
-						rmin++;
-					}
-				}
-			}
-			if(cnt%4==2) {
-				for (int j = rmin; j <= rmax; j++) {
-					a[j][cmax]=num;
-					num++;
-					if(j==rmax) {
-//						System.out.println(a[j][cmax]);
-						cmax--;
-						cnt++;
-					}
-				}
-			}
-			if(cnt%4==3) {
-				for (int j = cmax; j >= cmin; j--) {
-					a[rmax][j]=num;
-					num++;
-					if(j==cmin) {
-//						System.out.println(a[rmax][j]);
-						rmax--;
-						cnt++;
-					}
-				}
-			}
-			if(cnt%4==0) {
-				for (int j = rmax; j >= rmin; j--) {
-					a[j][cmin]=num;
-					num++;
-					if(j==rmin) {
-//						System.out.println(a[cmin][j]);
-						cmin++;
-						cnt++;
-					}
-				}
-			}
-			
-		}
-		
-		
-		// 배열 값 출력
-		for (int i = 0; i < a.length; i++) {
-			for (int j = 0; j < a[0].length; j++) {
-				System.out.print(a[i][j]+"\t");
-			}
-			System.out.println();
-		}
-	}
+    public static void main(String[] args) {
+    	
+    	/* 배열에 총 들어가야 하는 횟수는 4*5, 즉 a.length * a[0].length 와 같다. e.g) 5*6배열이면 30번
+    	 * 오른 쪽으로 움직이면 다음은 아래, 그 다음은 왼쪽, 그 다음은 위, 다음은 오른 쪽 순으로 계속 반복된다.
+    	 * 오른 쪽은 1
+    	 * 아래는 2
+    	 * 왼 쪽은 3
+    	 * 위는 4
+    	 * 순으로 계속 반복시키기 위해 1 2 3 4 를 반복시켜야 한다.
+    	 * 총 20번 동안 1 2 3 4 반복 시키기 위해서,
+    	 * 방향을 설정하는 direction을 만들어 1로 설정하고 이를 통해 최초로 오른쪽으로 움직이게 한다.
+    	 * 1이 끝나면 minR을 증가시킨다. 현재 행 처리를 끝냈으니 현재 행의 바로 아래 행을 다시 처리해야 한다.
+    	 * 2가 끝나면 maxC를 감소시킨다. 현재 열 처리를 끝내서 그 왼쪽 열을 처리해야 한다.
+    	 * 3이 끝나면 maxR을 감소시킨다. 현재 행을 채웠으니 그 위 행을 처리해야 한다.
+    	 * 4이 끝나면 minC를 증가시킨다. 현재 열 처리를 끝내고 다음 열을 처리해야하기 때문이다.
+    	 * 이러한 과정을 반복하면 총 20번의 처리과정 끝에 테이블이 완성된다.
+    	 *
+    	 */
+    	
+        int[][] a = new int[4][5];
+        int num = 1;
+        int direction = 1;
+        
+        int maxC = a[0].length - 1;
+        int minC = 0;
+        int maxR = a.length - 1;
+        int minR = 0;
 
+        while (num <= a.length * a[0].length) {
+            if (direction == 1) { // 오른쪽
+                for (int j = minC; j <= maxC; j++) {
+                    a[minR][j] = num++;
+                }
+                minR++;
+                direction = 2;
+            } else if (direction == 2) { // 아래
+                for (int j = minR; j <= maxR; j++) {
+                    a[j][maxC] = num++;
+                }
+                maxC--;
+                direction = 3;
+            } else if (direction == 3) { // 왼쪽
+                for (int j = maxC; j >= minC; j--) {
+                    a[maxR][j] = num++;
+                }
+                maxR--;
+                direction = 4;
+            } else if (direction == 4) { // 위
+                for (int j = maxR; j >= minR; j--) {
+                    a[j][minC] = num++;
+                }
+                minC++;
+                direction = 1;
+            }
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[0].length; j++) {
+                System.out.print(a[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
 }
