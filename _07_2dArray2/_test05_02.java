@@ -1,6 +1,6 @@
 package _07_2dArray2;
 
-public class _dummy {
+public class _test05_02 {
 
 	public static void main(String[] args) {
 		int[][] a = new int[4][5];
