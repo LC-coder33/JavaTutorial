@@ -10,7 +10,7 @@ public class _test06 {
 		int maxc = a[0].length - 1;	// 4
 		int minc = 0;
 		int direction = 1;
-		int minvalue = 0;	// direction 1 의 b[0][j]를 위해 만든 0의 자리를 위한 함수
+		int minvalue = 0;	// direction 1 의 b[0][j]를 위해 만든 0의 자리를 위한 변수
 		
 		int[][] b = new int[a.length][a.length];
 		

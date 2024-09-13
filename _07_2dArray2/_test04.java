@@ -22,8 +22,7 @@ public class _test04 {
 				for(int i = 0; i < rowA ; i++) {
 					for(int j = 0; j < colA; j++) {
 						if(i + j == k) {	// 0 일 때 00 1 일 떄 01 10 ... 의 열들이... 
-							a[i][j] = num;	// 입력 된다
-							num++;	// 각 행들을 지날 때 마다 1이 더해진다
+							a[i][j] = num++;	// 입력 된다	// 각 행들을 지날 때 마다 1이 더해진다
 						}
 					}
 				}
