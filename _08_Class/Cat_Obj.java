@@ -8,7 +8,7 @@ public class Cat_Obj {
 	public void prt() {
 		System.out.println("--- cat info ---");
 		System.out.println(name);
-		System.out.println(age);
+		System.out.println(age + "살");
 	}
 	
 }

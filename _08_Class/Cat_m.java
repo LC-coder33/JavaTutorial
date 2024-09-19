@@ -39,6 +39,8 @@ public class Cat_m {
 		Cat_Obj cat = new Cat_Obj();
 		System.out.println("고양이 이름을 입력");
 		cat.name = in.nextLine();		
+		System.out.println("고양이 나이를 입력");
+		cat.age = in.nextInt();
 		for(int i = 0; i < clist.length; i++) {
 			if(clist[i]==null) {
 				clist[i]=cat;
