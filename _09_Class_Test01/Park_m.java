@@ -44,14 +44,22 @@ public class Park_m {
 		}
 	}
 	public void check() {
-		System.out.println("차량 조회");
-		int number = in.nextInt();
-		if(clist[number]!=null) {
-		System.out.println("차량 번호: " + clist[number].cNum);
-		System.out.println("차주 이름: " +  clist[number].name);
-		} else {
-			System.out.println("이미 없는 차량입니다.");
+		System.out.println("<주차 조회>");
+		
+		System.out.print("차번호를 입력 하세요 :");
+		int carNo = in.nextInt();
+		in.nextLine();
+		
+		int cnt=0;
+		for (int i=0; i < clist.length; i++) {
+			if (clist[i] != null && clist[i].cNum == carNo) {
+				clist[i].prt();
+				System.out.println("입력한 차번호를 조회 하였습니다!");
+				cnt++;
+				break;
+			}
 		}
+		if (cnt == 0) System.out.println("맞는 차번호가 없습니다!");
 	}
 	public void allList() {
 		System.out.println("주차 차량 전체 보기");
