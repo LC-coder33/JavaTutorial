@@ -65,7 +65,7 @@ public class MetroCenter {
 				System.out.println("처음으로 돌아갑니다.");
 			}
 			for(int i = 0; i < fList.length; i++) {
-				if(fList[i] == null) {
+				if(fList[i] == null && fix.arrival != null) {
 					fList[i] = fix;
 					break;
 				}
@@ -95,7 +95,7 @@ public class MetroCenter {
 				System.out.println("처음으로 돌아갑니다.");
 			}
 			for(int i = 0; i < mList.length; i++) {
-				if(mList[i] == null) {
+				if(mList[i] == null && train.arrival != null) {
 					mList[i] = train;
 					break;
 					}
