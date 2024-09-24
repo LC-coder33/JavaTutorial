@@ -37,7 +37,7 @@ public class ManagementCenter {
 	}
 
 	public void menu() {
-		System.out.println("1. 회원 가입");
+		System.out.println("1. 회원가입");
 		System.out.println("2. 정보보기");
 		System.out.println("3. 수정하기");
 		System.out.println("4. 삭제하기");
@@ -76,9 +76,11 @@ public class ManagementCenter {
 				} else {
 					System.out.println("아이디 찾는 중...");
 				} 
-			} else if(cnt == 0) {
-				System.out.println("그런 아이디는 없습니다.");
 			}
+		}
+		if(cnt == 0) {
+			System.out.println("그런 아이디는 없습니다.");
+			cnt = 0;
 		}
 	}
 
