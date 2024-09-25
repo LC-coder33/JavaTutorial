@@ -20,5 +20,27 @@ public class MyDogList {
 		d[4]=dd;
 		System.out.println(dd);
 		System.out.println(d[4]);
+		d[1].name = "abc";
+		System.out.println(d[1].name);
+		System.out.println(d[2].name);
+		System.out.println(d[3].name);
+		d[0] = new Dog();
+		d[0].name = "땡칠이";
+		System.out.println(d[0].name);
+		
+		for(int i = 0; i < 5; i++) {
+			if(d[i] != null) {
+			System.out.println(d[i].name);
+			}
+		}
+		String s = "땡칠이";
+		for(int i = 0; i < 5; i++) {
+			if(d[i]!=null) {
+				if(d[i].name.equals(s)) {
+					System.out.println(i+1 + "번째 강아지의 이름");
+					break;
+				}
+			}
+		}
 	}
 }
