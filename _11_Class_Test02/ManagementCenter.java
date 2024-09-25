@@ -3,8 +3,14 @@ package _11_Class_Test02;
 import java.util.Scanner;
 
 public class ManagementCenter {
+	// 의존관계 변수만 설정하고 주소를
+	// 저장하는 방법은 직접 객체를 만들거나
+	// 주소를 주입 받는 방식이 있으니
+	// 이 부분을 생각해서 공부하자
+	// CUstomerOne cOne = null;
+	
 	CustomerOne[] cList = new CustomerOne[10];
-	String[] eList = {"추석 이벤트", "신규 이벤트","복귀 이벤트"};
+	String[] eList = {"추석 이벤트","신규 이벤트","복귀 이벤트"};
 	Scanner in = new Scanner(System.in);
 	
 	ManagementCenter() {
