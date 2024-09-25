@@ -1,4 +1,4 @@
-package _10_Class_Ex_level2;
+package _10_Class_Ex_level2_ArrayList;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +12,8 @@ public class MemberAdmin {
 	//MemberOne[] mlist = new MemberOne[5];
 	ArrayList<MemberOne> mlist = new ArrayList<>();
 	EventAdmin eventAd = new EventAdmin();
-	MemberAdmin() {
+	MemberAdmin(EventAdmin eventAdm) {
+		eventAd = eventAdm;
 		//menu();
 	}
 
@@ -89,10 +90,6 @@ public class MemberAdmin {
 //			}
 //		}
 		
-	}
-
-	public void eventSee(EventAdmin eventAdm) {
-		EventAdmin eventAd = eventAdm;
 	}
 
 }

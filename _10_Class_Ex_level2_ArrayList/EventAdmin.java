@@ -1,4 +1,4 @@
-package _10_Class_Ex_level2;
+package _10_Class_Ex_level2_ArrayList;
 
 import java.util.Scanner;
 

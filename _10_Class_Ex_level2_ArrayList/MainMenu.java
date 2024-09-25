@@ -1,4 +1,4 @@
-package _10_Class_Ex_level2;
+package _10_Class_Ex_level2_ArrayList;
 
 import java.util.Scanner;
 
@@ -16,8 +16,7 @@ public class MainMenu {
 			eventAdm = new EventAdmin();
 		}
 		if(memberAdm == null) {
-			memberAdm = new MemberAdmin();
-			memberAdm.eventSee(eventAdm);
+			memberAdm = new MemberAdmin(eventAdm);
 		}
 		// 초기화 작업할 때 많이 사용
 		// 초기화 작업은 멤버변수의 값을 셋팅하는 느낌
