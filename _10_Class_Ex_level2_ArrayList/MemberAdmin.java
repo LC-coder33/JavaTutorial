@@ -12,6 +12,7 @@ public class MemberAdmin {
 	//MemberOne[] mlist = new MemberOne[5];
 	ArrayList<MemberOne> mlist = new ArrayList<>();
 	EventAdmin eventAd = new EventAdmin();
+	
 	MemberAdmin(EventAdmin eventAdm) {
 		eventAd = eventAdm;
 		//menu();

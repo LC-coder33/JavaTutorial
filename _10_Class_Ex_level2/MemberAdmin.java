@@ -92,7 +92,7 @@ public class MemberAdmin {
 	}
 
 	public void eventSee(EventAdmin eventAdm) {
-		EventAdmin eventAd = eventAdm;
+		eventAd = eventAdm;
 	}
 
 }
